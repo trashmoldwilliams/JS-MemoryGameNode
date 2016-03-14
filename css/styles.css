@@ -1,5 +1,4 @@
-.card {
-  /*background-color: red;*/
+.size {
   width: 100px;
   height: 100px;
 }
@@ -22,4 +21,8 @@
 
 .class5 {
   background-color: green;
+}
+
+.default {
+  background-color: black;
 }

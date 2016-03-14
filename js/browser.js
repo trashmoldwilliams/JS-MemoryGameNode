@@ -7,6 +7,7 @@ function randomizer(cards) {
     var randomNumber = Math.floor((Math.random() * i));
     var cardLocation = "#card" + i;
     $(cardLocation).addClass("class" + cards[randomNumber].class);
+    $(cardLocation).addClass("default");
     cards.splice(randomNumber, 1);
   }
 }
@@ -30,5 +31,37 @@ function defineCards() {
 $(document).ready(function(){
   cards = defineCards();
   randomizer(cards);
+
+  var matchChecker = [];
+  var score = 0;
+
+  $(".card").click(function() {
+    matchChecker.push($(this).attr("class"))
+    matchChecker.push($(this).attr("id"))
+    var target = "#" + event.target.id;
+    $(target).removeClass("default");
+
+    if(matchChecker.length === 4) {
+      if(matchChecker[0] === matchChecker[2]) {
+        alert("Match!");
+        score += 1;
+        var id1 = "#" + matchChecker[1];
+        var id2 = "#" + matchChecker[3];
+        $(id1).off();
+        $(id2).off();
+      } else {
+        alert("Not A Match!");
+        $(target).addClass("default");
+        var otherTarget = "#" + matchChecker[1];
+        $(otherTarget).addClass("default");
+      }
+
+      if(score === 5) {
+        alert("you win");
+      }
+      matchChecker = [];
+    }
+  });
+
   event.preventDefault();
 });
