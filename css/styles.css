@@ -1,5 +1,25 @@
 .card {
-  background-color: red;
+  /*background-color: red;*/
   width: 100px;
   height: 100px;
+}
+
+.class1 {
+  background-color: red;
+}
+
+.class2 {
+  background-color: blue;
+}
+
+.class3 {
+  background-color: yellow;
+}
+
+.class4 {
+  background-color: purple;
+}
+
+.class5 {
+  background-color: green;
 }
